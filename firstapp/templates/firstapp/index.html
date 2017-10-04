@@ -1,0 +1,36 @@
+<!DOCTYPE html> {% load staticfiles%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '\css\main.css'%}">
+    <title>FirstApp</title>
+</head>
+
+<body>
+    <h1>Aqui estão os registros:</h1>
+    <img src="{% static 'images/logo.png'%}" alt="logo"> {% if access_records %}
+    <table>
+
+        <head>
+            <th>Nome do site</th>
+            <th>Data do acesso</th>
+        </head>
+        {% for acc in access_records %}
+        <tr>
+            <td>{{acc.pagina}}</td>
+            <td>{{acc.date}}</td>
+        </tr>
+        {%endfor %}
+    </table>
+
+    {% else %}
+    <p>Nenhum registro de acesso. Tabela não criada</p>
+    {% endif %}
+    <!-- <img src="{% static 'images/keep-calm-and-love-python-4.jpg'%}" alt="love"> -->
+
+</body>
+
+</html>
